@@ -1,0 +1,19 @@
+<h1>Last 3 students</h1>
+<table border="1">
+    <tr>
+        <td>nsc</td>
+        <td>email</td>
+        <td>Creation_Date</td>
+        <td>Action</td>
+    </tr>
+    {% for student in studentByDate %}
+        <tr>
+            <td>{{ student.nsc }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.creationDate|date }}</td>
+            <td><a href="{{ path('updateStudent',{'nsc':student.nsc}) }}">Update</a>
+                <a href="{{ path('deleteStudent',{'nsc':student.nsc}) }}">Delete</a>
+                <a href="{{ path('showStudent',{'nsc':student.nsc}) }}">Show</a></td>
+        </tr>
+    {% endfor %}
+</table>
